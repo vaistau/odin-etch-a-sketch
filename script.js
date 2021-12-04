@@ -8,20 +8,23 @@ let box = document.querySelectorAll('#box');
 addColor()
 
 resetButton.addEventListener('click', function () {
-    box.forEach(box => {
-        box.classList.remove('color');
-    })
-    createGrid(prompt('What should the length and width of your new canvas be?', 16, 'x', 16));
+    resetCanvas();
+    createGrid(prompt('What should the length and width of your new canvas be? \r\n (Maximum 100)', 16));
     addColor();
 })
 
 // FUNCTION DECLARATIONS
 
 function createGrid(dimension) {
-    for (let i = 0; i < dimension * dimension; i++) {
-        createDiv = document.createElement('div');
-        createDiv.setAttribute('id', 'box');
-        divContainer.appendChild(createDiv);
+    if (dimension <= 100) {
+        for (let i = 0; i < dimension * dimension; i++) {
+            createDiv = document.createElement('div');
+            createDiv.setAttribute('id', 'box');
+            divContainer.appendChild(createDiv);
+        }
+    } else {
+        alert('Dimensions over 100px are not supported at this time.')
+        createGrid(16);
     }
 }
 
@@ -37,19 +40,5 @@ function addColor() {
 
 function resetCanvas() {
     box = document.querySelectorAll('#box');
-    divContainer = document.querySelector('div');
-
-    box.forEach(box => {
-        box.classList.remove('color');
-    })
-
-    while (divContainer.box) {
-        divContainer.removeChild(box);
-    }
-}
-
-function newCanvas() {
-    createGrid(prompt('How many cells should the length/width of your canvas contain?', 16));
-
-    addColor();
+    let removeBox = document.querySelectorAll('#box').forEach(box => box.remove());
 }
