@@ -29,7 +29,7 @@ function createGrid(dimension) {
         }
     } else {
         alert('Dimensions larger than 100x100 are not supported at this time.')
-        createGrid(16);
+        createGrid(20);
     }
 }
 
