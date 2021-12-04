@@ -2,14 +2,14 @@ let divContainer = document.querySelector('#div-container');
 let createDiv;
 let resetButton = document.querySelector('#reset-button');
 
-createGrid(16);
+createGrid(20);
 
 let box = document.querySelectorAll('#box');
 addColor()
 
 resetButton.addEventListener('click', function () {
     resetCanvas();
-    createGrid(prompt('What should the length and width of your new canvas be? \r\n (Maximum 100)', 16));
+    createGrid(prompt('What should the height and width of your new canvas be? \r\n (Maximum 100)', 20));
     addColor();
 })
 
@@ -18,8 +18,8 @@ resetButton.addEventListener('click', function () {
 function createGrid(dimension) {
     if (dimension <= 100) {
         for (let i = 0; i < dimension * dimension; i++) {
-            let boxWidth = 480/dimension;
-            let boxHeight = 480/dimension;
+            let boxWidth = 580/dimension;
+            let boxHeight = 580/dimension;
 
             createDiv = document.createElement('div');
             createDiv.setAttribute('id', 'box');
@@ -28,7 +28,7 @@ function createGrid(dimension) {
         
         }
     } else {
-        alert('Dimensions over 100px are not supported at this time.')
+        alert('Dimensions larger than 100x100 are not supported at this time.')
         createGrid(16);
     }
 }
@@ -46,9 +46,4 @@ function addColor() {
 function resetCanvas() {
     box = document.querySelectorAll('#box');
     let removeBox = document.querySelectorAll('#box').forEach(box => box.remove());
-}
-
-function calcBoxSize(number) {
-    let boxWidth = 480/number;
-    let boxHeight = 480/number;
 }

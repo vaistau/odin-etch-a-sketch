@@ -1,19 +1,24 @@
 #global-container {
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 #div-container {
-    width: 480px;
-    height: 480px;
+    width: 580px;
+    height: 580px;
+    outline: 1px dotted;
 }
 
 #box {
     float: left;
-    outline: 0.5px solid;
 }
 
 #reset-button {
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 
 .color {
